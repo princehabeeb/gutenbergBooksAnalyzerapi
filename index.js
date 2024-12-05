@@ -3,13 +3,26 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 
+const app = express();
+app.use(express.json());
+
+// managing cors
+const corsOptions = {
+    origin: ['https://www.snappose.com', 'http://localhost:3000'],
+    optionsSuccessStatus: 200,
+  };
+  app.use(cors(corsOptions));
+   // Handle preflight requests
+   app.options('*', cors());
+
 const bookRoutes = require("./routes/books");
 const analysisRoutes = require("./routes/analysis");
 const proxyRoutes = require("./routes/proxy");
 
-const app = express();
-app.use(cors());
-app.use(express.json());
+
+
+
+
 
 // Connect to MongoDB
 mongoose
