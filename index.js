@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 
+
 const app = express();
 app.use(express.json());
 
@@ -18,6 +19,7 @@ const corsOptions = {
 const bookRoutes = require("./routes/books");
 const analysisRoutes = require("./routes/analysis");
 const proxyRoutes = require("./routes/proxy");
+const authRoutes = require("./routes/authRoutes");
 
 
 
@@ -34,6 +36,7 @@ mongoose
 app.use("/api/fetch-book", bookRoutes);
 app.use("/api/analyze", analysisRoutes);
 app.use("/api/proxy", proxyRoutes);
+app.use("/api/auth", authRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
