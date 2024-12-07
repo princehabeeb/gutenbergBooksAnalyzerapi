@@ -1,10 +1,12 @@
-const User = require("../models/User");
+const {User, validate } = require("../models/User");
 const { sendVerificationEmail } = require("../services/emailService");
 const { generateOTP } = require("../utils/generateOTP");
 const jwt = require("jsonwebtoken");
 
 exports.signup = async (req, res) => {
   try {
+    const { error } = validate(req.body);
+    if (error) return res.status(400).send(error.details[0].message);
     const { fullName, email, password } = req.body;
 
     const userExists = await User.findOne({ email });
