@@ -21,6 +21,7 @@ const bookRoutes = require("./routes/books");
 const analysisRoutes = require("./routes/analysis");
 const proxyRoutes = require("./routes/proxy");
 const authRoutes = require("./routes/authRoutes");
+const savedBookRoutes = require("./routes/savedBookRoutes");
 
 
 
@@ -38,6 +39,7 @@ app.use("/api/fetch-book", bookRoutes);
 app.use("/api/analyze", analysisRoutes);
 app.use("/api/proxy", proxyRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/books", savedBookRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
