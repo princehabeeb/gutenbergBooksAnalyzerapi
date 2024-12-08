@@ -7,6 +7,7 @@ exports.signup = async (req, res) => {
   try {
     const { error } = validate(req.body);
     if (error) return res.status(400).send(error.details[0].message);
+    
     const { fullName, email, password } = req.body;
 
     const userExists = await User.findOne({ email });
