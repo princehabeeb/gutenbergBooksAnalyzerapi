@@ -38,7 +38,7 @@ const signup = async (req, res) => {
     await Otp.create({ email, otp, expiresAt: otpExpiry });
 
     // Send OTP via email
-    await sendEmail(email, 'Verify Your Email', `Your OTP is: ${otp}`);
+    await sendEmail(email, 'Verify Your Email', `Your OTP for Gutenberg book analyzer is: ${otp}`);
 
     res.status(201).json({ message: 'Signup successful. Please verify your email.' });
   } catch (err) {
