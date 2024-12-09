@@ -13,7 +13,7 @@ app.use(express.urlencoded({ limit: "10mb", extended: true }));
 
 // managing cors
 const corsOptions = {
-    origin: ['https://www.snappose.com', 'http://localhost:3000'],
+    origin: ['https://gutenberg-books-analyzer.vercel.app', 'http://localhost:3000'],
     optionsSuccessStatus: 200,
   };
   app.use(cors(corsOptions));
